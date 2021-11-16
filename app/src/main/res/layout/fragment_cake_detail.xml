@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="ru.konstantinov.onlinestore.ui.detail.CakeDetailVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/cake_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{viewModel.nameObs}"
+            android:layout_marginBottom="20dp"/>
+
+        <ImageView
+            android:id="@+id/cake_img"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:layout_constraintTop_toBottomOf="@id/cake_name"
+            app:layout_constraintStart_toStartOf="parent"
+            android:scaleType="centerCrop"
+            app:picasso="@{viewModel.imgObs}"/>
+
+        <TextView
+            android:id="@+id/cake_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/cake_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{viewModel.priceObs}" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/to_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="В корзину"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/cake_img" />
+
+        <TextView
+            android:id="@+id/cake_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/to_cart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{viewModel.descriptionObs}"
+            android:layout_marginVertical="20dp"/>
+
+        <TextView
+            android:id="@+id/cake_ingredients"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/cake_desc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/cake_img"
+            android:text="@{viewModel.ingredientsObs}"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/cake_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/cake_desc"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{viewModel.weightObs}"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/cake_calories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/cake_weight"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@{viewModel.caloriesObs}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
